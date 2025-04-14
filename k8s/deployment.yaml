@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: ai-model-api-deployment
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: ai-model-api
+  template:
+    metadata:
+      labels:
+        app: ai-model-api
+    spec:
+      containers:
+      - name: ai-model-container
+        image: sarvagyamishra82/ai-model-api:latest
+        ports:
+        - containerPort: 80
